@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>R NISHANTH - Modern CV</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        /* Control Panel Styles */
+        .control-panel {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            z-index: 1000;
+            border: 2px solid #0066cc;
+        }
+        
+        .control-title {
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
+            text-align: center;
+        }
+        
+        .download-btn {
+            width: 100%;
+            background: #28a745;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+        
+        .download-btn:hover {
+            background: #218838;
+        }
+        
+        .back-btn {
+            width: 100%;
+            background: #0066cc;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .back-btn:hover {
+            background: #0052a3;
+        }
+        
+        /* Hide control panel when printing */
+        @media print {
+            .control-panel { display: none !important; }
+        }
+        
+        /* Modern CV Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            font-size: 10px;
+            line-height: 1.2;
+            color: #333;
+            background: white;
+        }
+        
+        .resume-container {
+            max-width: 8.5in;
+            min-height: 11in;
+            margin: 0 auto;
+            padding: 0.35in;
+            display: grid;
+            grid-template-columns: 1fr 1.9fr;
+            gap: 0.25in;
+            background: white;
+        }
+        
+        .left-column {
+            background: #f8f9fa;
+            padding: 0.2in;
+            border-radius: 5px;
+        }
+        
+        .right-column {
+            padding: 0.05in;
+        }
+        
+        .header {
+            grid-column: 1 / -1;
+            text-align: center;
+            margin-bottom: 0.12in;
+            border-bottom: 2px solid #0066cc;
+            padding-bottom: 0.08in;
+        }
+        
+        .name {
+            font-size: 22px;
+            font-weight: bold;
+            color: #0066cc;
+            margin-bottom: 0.04in;
+            letter-spacing: 1px;
+        }
+        
+        .contact-info {
+            font-size: 9px;
+            color: #666;
+            line-height: 1.3;
+            font-weight: 500;
+        }
+        
+        .section-title {
+            font-size: 12px;
+            font-weight: bold;
+            color: #0066cc;
+            margin: 0.12in 0 0.06in 0;
+            text-transform: uppercase;
+            border-bottom: 1px solid #0066cc;
+            padding-bottom: 0.02in;
+        }
+        
+        .section-content {
+            margin-bottom: 0.1in;
+        }
+        
+        .skills-grid {
+            display: grid;
+            gap: 0.06in;
+        }
+        
+        .skill-category {
+            margin-bottom: 0.05in;
+        }
+        
+        .skill-category strong {
+            color: #0066cc;
+            font-size: 9px;
+            display: block;
+            margin-bottom: 0.02in;
+        }
+        
+        .skill-list {
+            font-size: 8px;
+            line-height: 1.1;
+            color: #555;
+        }
+        
+        .experience-item, .project-item {
+            margin-bottom: 0.1in;
+        }
+        
+        .job-title {
+            font-weight: bold;
+            font-size: 11px;
+            color: #333;
+        }
+        
+        .company-info {
+            font-size: 9px;
+            color: #666;
+            margin-bottom: 0.03in;
+        }
+        
+        .job-duration {
+            float: right;
+            font-style: italic;
+        }
+        
+        .achievements {
+            list-style: none;
+            margin-top: 0.03in;
+        }
+        
+        .achievements li {
+            font-size: 9px;
+            margin-bottom: 0.02in;
+            position: relative;
+            padding-left: 0.08in;
+            line-height: 1.2;
+        }
+        
+        .achievements li:before {
+            content: "•";
+            color: #0066cc;
+            position: absolute;
+            left: 0;
+        }
+        
+        .project-title {
+            font-weight: bold;
+            font-size: 10px;
+            color: #333;
+        }
+        
+        .project-tech {
+            font-size: 8px;
+            color: #666;
+            font-style: italic;
+            float: right;
+        }
+        
+        .education-item {
+            margin-bottom: 0.06in;
+        }
+        
+        .degree {
+            font-weight: bold;
+            font-size: 10px;
+            color: #333;
+        }
+        
+        .university {
+            font-size: 9px;
+            color: #666;
+            margin-bottom: 0.02in;
+        }
+        
+        .gpa {
+            font-size: 8px;
+            color: #666;
+        }
+        
+        .summary {
+            font-size: 9px;
+            line-height: 1.3;
+            text-align: justify;
+            margin-bottom: 0.08in;
+        }
+        
+        .research-achievements {
+            font-size: 9px;
+            line-height: 1.2;
+        }
+        
+        .research-achievements strong {
+            color: #0066cc;
+        }
+        
+        /* Print optimizations */
+        @media print {
+            body { 
+                print-color-adjust: exact; 
+                -webkit-print-color-adjust: exact;
+            }
+            .resume-container { 
+                margin: 0; 
+                padding: 0.35in;
+                page-break-inside: avoid;
+            }
+            .experience-item, .project-item {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Control Panel -->
+    <div class="control-panel">
+        <div class="control-title">Modern CV</div>
+        <button class="download-btn" onclick="downloadPDF()">📄 Download PDF</button>
+        <button class="back-btn" onclick="goBack()">← Back to Selector</button>
+    </div>
+    
+    <div class="resume-container">
+        <!-- Header -->
+        <div class="header">
+            <div class="name">R NISHANTH</div>
+            <div class="contact-info">
+                +91 6302092732 | nishanth0962333@gmail.com | Hyderabad, India<br>
+                LinkedIn: linkedin.com/in/r-nishanth- | GitHub: github.com/Nishanth-nishu | Portfolio: nishanth-nishu.github.io
+            </div>
+        </div>
+        
+        <!-- Left Column -->
+        <div class="left-column">
+            <!-- Technical Skills -->
+            <div class="section-title">Technical Skills</div>
+            <div class="section-content">
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <strong>Machine Learning & AI</strong>
+                        <div class="skill-list">PyTorch, TensorFlow, Scikit-learn, Graph Neural Networks, Deep Learning, Computer Vision, Natural Language Processing, MLOps</div>
+                    </div>
+                    <div class="skill-category">
+                        <strong>Programming Languages</strong>
+                        <div class="skill-list">Python, C++, SQL, JavaScript, R</div>
+                    </div>
+                    <div class="skill-category">
+                        <strong>ML Frameworks & Libraries</strong>
+                        <div class="skill-list">HuggingFace Transformers, DGL, PyTorch Geometric, OpenCV, YOLO, EfficientNet, BERT, GPT, spaCy, NLTK</div>
+                    </div>
+                    <div class="skill-category">
+                        <strong>Data Science & Analytics</strong>
+                        <div class="skill-list">Pandas, NumPy, Matplotlib, Statistical Analysis, Data Visualization</div>
+                    </div>
+                    <div class="skill-category">
+                        <strong>Cloud & DevOps</strong>
+                        <div class="skill-list">AWS, Docker, Git, Linux, REST APIs, Model Deployment</div>
+                    </div>
+                    <div class="skill-category">
+                        <strong>Specialized Tools</strong>
+                        <div class="skill-list">FAISS, Model Quantization, Jupyter, RDKit, SMILES, Molecular Modeling</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Education -->
+            <div class="section-title">Education</div>
+            <div class="section-content">
+                <div class="education-item">
+                    <div class="degree">Bachelor of Technology</div>
+                    <div class="degree">Computer Science & Engineering</div>
+                    <div class="university">KG Reddy College of Engineering<br>Hyderabad, India</div>
+                    <div class="gpa">2021 - 2025 | CGPA: 7.65</div>
+                </div>
+            </div>
+            
+            <!-- Research & Publications -->
+            <div class="section-title">Research & Publications</div>
+            <div class="section-content">
+                <div class="research-achievements">
+                    <strong>Publication:</strong> "Japanese-to-English Video Dubbing Using BERT and Open Voice" - Accepted at ICMED 2025<br><br>
+                    <strong>Recognition:</strong> Selected for BITS Pilani Hyderabad AI/ML Workshop (2024), IEEE National-Level Project Expo Presenter (2024)<br><br>
+                    <strong>Achievement:</strong> Runner-Up at State Technical Fest (AI Innovation Category)<br><br>
+                    <strong>Leadership:</strong> Head of AIML Club - Led 5+ workshops, mentoring 100+ participants
+                </div>
+            </div>
+        </div>
+        
+        <!-- Right Column -->
+        <div class="right-column">
+            <!-- Professional Summary -->
+            <div class="section-title">Professional Summary</div>
+            <div class="section-content">
+                <div class="summary">
+                    AI/ML Engineer specializing in deep learning research, graph neural networks, and production ML systems. Proven expertise in developing Transformer-based architectures, optimizing model performance by 40%, and deploying scalable AI solutions. Research experience in computational chemistry and drug discovery with peer-reviewed publications. Expert in PyTorch, transformers, and MLOps with demonstrated ability to translate cutting-edge research into business-impactful applications.
+                </div>
+            </div>
+            
+            <!-- Professional Experience -->
+            <div class="section-title">Professional Experience</div>
+            <div class="section-content">
+                <div class="experience-item">
+                    <div class="job-title">AI Research Fellow – Drug Discovery & Computational Chemistry</div>
+                    <div class="company-info">
+                        IIITH – IHub-Data (CCNSB), Hyderabad, India
+                        <span class="job-duration">Jan 2025 – Present</span>
+                    </div>
+                    <ul class="achievements">
+                        <li>Developed Transformer-based Graph Neural Network (GraphTransformer_CIGIN) for predicting solubility free energy (ΔG_solv) in molecular systems, extending CIGIN architecture with self-attention layers</li>
+                        <li>Replaced Set2Set pooling with multi-head global attention pooling and enhanced message passing with GraphTransformer layers, enabling superior global feature aggregation</li>
+                        <li>Achieved competitive performance metrics with GraphTransformer: MAE: 0.3727, RMSE: 0.6599, MSE: 0.4354 with only 1.23× parameter growth and 1.22× training time</li>
+                        <li>Implemented saliency visualization and gradient-based interpretation using PyTorch + DGL for batched molecular graph processing</li>
+                        <li>Built custom molecular GNN pipelines with SMILES data processing and RDKit integration for robust chemical property prediction</li>
+                    </ul>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="job-title">Open Source Contributor</div>
+                    <div class="company-info">
+                        LangChain & PyTorch Projects
+                        <span class="job-duration">May 2025 – Present</span>
+                    </div>
+                    <ul class="achievements">
+                        <li>Actively contribute to LangChain, developing and improving components for building applications with large language models</li>
+                        <li>Implement and optimize PyTorch modules, enhancing deep learning model performance and functionality</li>
+                        <li>Collaborate with global developer communities to resolve issues, review pull requests, and maintain documentation</li>
+                        <li>Develop custom integrations between LangChain components and external APIs, improving framework versatility</li>
+                        <li>Create educational content and examples to help new users understand implementation best practices</li>
+                    </ul>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="job-title">Oracle AI Application Developer Trainee</div>
+                    <div class="company-info">
+                        ProwessIQ Information Systems Pvt Ltd, Chennai, India
+                        <span class="job-duration">Feb 2025 – July 2025</span>
+                    </div>
+                    <ul class="achievements">
+                        <li>Designed image-based recommendation system using EfficientNet and FAISS, improving search accuracy by 40%</li>
+                        <li>Optimized inference latency from 5s to 2s through parallel processing and model quantization techniques</li>
+                        <li>Integrated AI solutions with enterprise architecture for seamless deployment serving 500+ daily active users</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Key Projects -->
+            <div class="section-title">Key Projects</div>
+            <div class="section-content">
+                <div class="project-item">
+                    <div class="project-title">CIGIN - Chemical Interpretable Graph Interaction Networks</div>
+                    <div class="project-tech">PyTorch, DGL, GNNs</div>
+                    <div style="font-size: 8px; color: #0066cc; margin-bottom: 0.02in;">
+                        GitHub: github.com/Nishanth-nishu/CIGIN_IIIT (testing-graph1 branch)
+                    </div>
+                    <ul class="achievements">
+                        <li>Enhanced graph neural network architecture for chemical property prediction with improved stability and interpretability</li>
+                        <li>Developed transformer-based aggregation module with attention heads, outperforming traditional Set2Set pooling methods</li>
+                        <li>Implemented gradient clipping, loss normalization, and comprehensive error handling for production-ready stability</li>
+                    </ul>
+                </div>
+                
+                <div class="project-item">
+                    <div class="project-title">AI-Driven Glycemic Risk Prediction and Health Management System</div>
+                    <div class="project-tech">ML, Gemini AI, Classification</div>
+                    <div style="font-size: 8px; color: #0066cc; margin-bottom: 0.02in;">
+                        GitHub: github.com/Nishanth-nishu/diabetic-prevention-
+                    </div>
+                    <ul class="achievements">
+                        <li>Built ML model with 88% accuracy for diabetes risk prediction from patient records</li>
+                        <li>Integrated Gemini AI for personalized lifestyle recommendations, increasing user engagement by 50%</li>
+                        <li>Developed a Gradient Boosting Classifier for diabetes risk prediction with high accuracy</li>
+                    </ul>
+                </div>
+                
+                <div class="project-item">
+                    <div class="project-title">AI Resume Enhancer</div>
+                    <div class="project-tech">Python, Gemini API, NLP</div>
+                    <div style="font-size: 8px; color: #0066cc; margin-bottom: 0.02in;">
+                        GitHub: github.com/Nishanth-nishu/final_resume_enhancer.git
+                    </div>
+                    <ul class="achievements">
+                        <li>Built AI system improving ATS compatibility by 40% across 500+ resumes using semantic matching algorithms</li>
+                        <li>Integrated Gemini 1.5 Flash for job description analysis achieving 98% content extraction accuracy</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function downloadPDF() {
+            // Hide the control panel during printing
+            const controlPanel = document.querySelector('.control-panel');
+            controlPanel.style.display = 'none';
+            
+            // Set print-friendly styles
+            document.body.style.margin = '0';
+            document.body.style.padding = '0';
+            
+            // Print the page
+            window.print();
+            
+            // Show the control panel again after printing
+            setTimeout(() => {
+                controlPanel.style.display = 'block';
+            }, 1000);
+        }
+        
+        function goBack() {
+            // Check if there's a previous page in history
+            if (window.history.length > 1) {
+                window.history.back();
+            } else {
+                // If no history, try to go to index.html
+                window.location.href = 'index.html';
+            }
+        }
+        
+        // Ensure page fits on one page
+        window.addEventListener('load', function() {
+            const container = document.querySelector('.resume-container');
+            if (container) {
+                const maxHeight = window.innerHeight * 0.9;
+                
+                if (container.offsetHeight > maxHeight) {
+                    // Adjust font sizes if content is too long
+                    document.body.style.fontSize = '9px';
+                }
+            }
+        });
+    </script>
+</body>
+</html>
