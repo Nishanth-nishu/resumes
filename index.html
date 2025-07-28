@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>R NISHANTH - AI/ML Engineer Resume</title>
-        <style>
+    <title>Resume Format Selector - R NISHANTH</title>
+    <style>
         * {
             margin: 0;
             padding: 0;
@@ -13,416 +13,305 @@
         
         body {
             font-family: 'Arial', sans-serif;
-            font-size: 10px;
-            line-height: 1.2;
-            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .container {
             background: white;
-        }
-        
-        .resume-container {
-            max-width: 8.5in;
-            min-height: 11in;
-            margin: 0 auto;
-            padding: 0.35in;
-            display: grid;
-            grid-template-columns: 1fr 1.9fr;
-            gap: 0.25in;
-            background: white;
-        }
-        
-        .left-column {
-            background: #f8f9fa;
-            padding: 0.2in;
-            border-radius: 5px;
-        }
-        
-        .right-column {
-            padding: 0.05in;
-        }
-        
-        .header {
-            grid-column: 1 / -1;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
             text-align: center;
-            margin-bottom: 0.12in;
-            border-bottom: 2px solid #0066cc;
-            padding-bottom: 0.08in;
+            max-width: 600px;
+            width: 90%;
         }
         
-        .name {
-            font-size: 22px;
-            font-weight: bold;
-            color: #0066cc;
-            margin-bottom: 0.04in;
-            letter-spacing: 1px;
-        }
-        
-        .contact-info {
-            font-size: 9px;
-            color: #666;
-            line-height: 1.3;
-        }
-        
-        .contact-info a {
-            text-decoration: none;
-            color: #0066cc;
-        }
-        
-        .section-title {
-            font-size: 12px;
-            font-weight: bold;
-            color: #0066cc;
-            margin: 0.12in 0 0.06in 0;
-            text-transform: uppercase;
-            border-bottom: 1px solid #0066cc;
-            padding-bottom: 0.02in;
-        }
-        
-        .section-content {
-            margin-bottom: 0.1in;
-        }
-        
-        .skills-grid {
-            display: grid;
-            gap: 0.06in;
-        }
-        
-        .skill-category {
-            margin-bottom: 0.05in;
-        }
-        
-        .skill-category strong {
-            color: #0066cc;
-            font-size: 9px;
-            display: block;
-            margin-bottom: 0.02in;
-        }
-        
-        .skill-list {
-            font-size: 8px;
-            line-height: 1.1;
-            color: #555;
-        }
-        
-        .experience-item, .project-item {
-            margin-bottom: 0.1in;
-        }
-        
-        .job-title {
-            font-weight: bold;
-            font-size: 11px;
+        .title {
+            font-size: 2.5rem;
             color: #333;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
         }
         
-        .company-info {
-            font-size: 9px;
+        .subtitle {
+            font-size: 1.2rem;
             color: #666;
-            margin-bottom: 0.03in;
+            margin-bottom: 2rem;
         }
         
-        .job-duration {
-            float: right;
-            font-style: italic;
+        .description {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 2rem;
+            line-height: 1.6;
         }
         
-        .achievements {
+        .format-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .format-card {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 15px;
+            border: 3px solid transparent;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .format-card:hover {
+            border-color: #0066cc;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,102,204,0.2);
+        }
+        
+        .format-card.modern {
+            background: linear-gradient(135deg, #667eea20, #764ba220);
+        }
+        
+        .format-card.faang {
+            background: linear-gradient(135deg, #f093fb20, #f5576c20);
+        }
+        
+        .card-title {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+        
+        .card-description {
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.4;
+            margin-bottom: 1rem;
+        }
+        
+        .card-features {
+            font-size: 0.8rem;
+            color: #555;
+            text-align: left;
+        }
+        
+        .card-features ul {
             list-style: none;
-            margin-top: 0.03in;
+            padding: 0;
         }
         
-        .achievements li {
-            font-size: 9px;
-            margin-bottom: 0.02in;
+        .card-features li {
+            margin-bottom: 0.3rem;
             position: relative;
-            padding-left: 0.08in;
-            line-height: 1.2;
+            padding-left: 1rem;
         }
         
-        .achievements li:before {
-            content: "•";
-            color: #0066cc;
+        .card-features li:before {
+            content: "✓";
+            color: #28a745;
+            font-weight: bold;
             position: absolute;
             left: 0;
         }
         
-        .project-title {
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+        
+        .btn {
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
             font-weight: bold;
-            font-size: 10px;
-            color: #333;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
         }
         
-        .project-tech {
-            font-size: 8px;
-            color: #666;
-            font-style: italic;
-            float: right;
-        }
-        
-        .education-item {
-            margin-bottom: 0.06in;
-        }
-        
-        .degree {
-            font-weight: bold;
-            font-size: 10px;
-            color: #333;
-        }
-        
-        .university {
-            font-size: 9px;
-            color: #666;
-            margin-bottom: 0.02in;
-        }
-        
-        .gpa {
-            font-size: 8px;
-            color: #666;
-        }
-        
-        .summary {
-            font-size: 9px;
-            line-height: 1.3;
-            text-align: justify;
-            margin-bottom: 0.08in;
-        }
-        
-        .research-achievements {
-            font-size: 9px;
-            line-height: 1.2;
-        }
-        
-        .research-achievements strong {
-            color: #0066cc;
-        }
-        
-        /* Print-specific styles for PDF */
-        @media print {
-            body { 
-                print-color-adjust: exact; 
-                -webkit-print-color-adjust: exact;
-            }
-            .resume-container { 
-                margin: 0; 
-                padding: 0.3in; 
-                page-break-inside: avoid;
-            }
-            .experience-item, .project-item {
-                page-break-inside: avoid;
-            }
-        }
-        
-        /* PDF download button */
-        .download-btn {
-            position: fixed;
-            top: 20px;
-            right: 20px;
+        .btn-primary {
             background: #0066cc;
             color: white;
-            padding: 10px 20px;
+        }
+        
+        .btn-primary:hover {
+            background: #0052a3;
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background: #28a745;
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            background: #218838;
+            transform: translateY(-2px);
+        }
+        
+        .footer {
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #eee;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        @media (max-width: 768px) {
+            .format-cards {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .title {
+                font-size: 2rem;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+            }
+        }
+        
+        /* Preview Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
+        }
+        
+        .modal-content {
+            background-color: white;
+            margin: 2% auto;
+            padding: 20px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 900px;
+            height: 85vh;
+            overflow: auto;
+        }
+        
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        .close:hover {
+            color: black;
+        }
+        
+        .preview-iframe {
+            width: 100%;
+            height: calc(100% - 50px);
             border: none;
             border-radius: 5px;
-            cursor: pointer;
-            font-size: 14px;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-        }
-        
-        .download-btn:hover {
-            background: #0052a3;
-        }
-        
-        @media print {
-            .download-btn { display: none; }
         }
     </style>
 </head>
 <body>
-    <button class="download-btn" onclick="downloadPDF()">Download as PDF</button>
+    <div class="container">
+        <h1 class="title">R NISHANTH</h1>
+        <p class="subtitle">Resume Format Selector</p>
+        <p class="description">
+            Choose your preferred resume format. Each format is optimized for different purposes and industries.
+        </p>
+        
+        <div class="format-cards">
+            <a href="moderncv.html" class="format-card modern" target="_blank">
+                <div class="card-title">Modern CV</div>
+                <div class="card-description">
+                    Clean, professional layout with excellent visual hierarchy and readability.
+                </div>
+                <div class="card-features">
+                    <ul>
+                        <li>Two-column layout</li>
+                        <li>Color-coded sections</li>
+                        <li>Skills visualization</li>
+                        <li>Academic-friendly</li>
+                        <li>Research-focused</li>
+                    </ul>
+                </div>
+            </a>
+            
+            <a href="faang.html" class="format-card faang" target="_blank">
+                <div class="card-title">FAANG Format</div>
+                <div class="card-description">
+                    Industry-standard format optimized for tech companies and ATS systems.
+                </div>
+                <div class="card-features">
+                    <ul>
+                        <li>ATS-optimized</li>
+                        <li>Metrics-focused</li>
+                        <li>Impact-driven</li>
+                        <li>Tech industry standard</li>
+                        <li>Quantified achievements</li>
+                    </ul>
+                </div>
+            </a>
+        </div>
+        
+        <div class="action-buttons">
+            <button class="btn btn-primary" onclick="previewFormat('moderncv.html')">Preview Modern CV</button>
+            <button class="btn btn-secondary" onclick="previewFormat('faang.html')">Preview FAANG Format</button>
+        </div>
+        
+        <div class="footer">
+            <p>💡 Tip: Right-click on any format and select "Save As" to download the HTML file</p>
+            <p>📧 Contact: nishanth0962333@gmail.com | 🔗 LinkedIn: linkedin.com/in/r-nishanth-</p>
+        </div>
+    </div>
     
-    <div class="resume-container">
-        <!-- Header -->
-        <div class="header">
-            <div class="name">R NISHANTH</div>
-            <div class="contact-info">
-                +91 6302092732 | <a href="mailto:nishanth0962333@gmail.com">nishanth0962333@gmail.com</a><br>
-                Hyderabad, India | <a href="https://linkedin.com/in/r-nishanth-/">LinkedIn</a> | 
-                <a href="https://github.com/Nishanth-nishu">GitHub</a> | <a href="https://nishanth-nishu.github.io">Portfolio</a>
-            </div>
-        </div>
-        
-        <!-- Left Column -->
-        <div class="left-column">
-            <!-- Technical Skills -->
-            <div class="section-title">Technical Skills</div>
-            <div class="section-content">
-                <div class="skills-grid">
-                    <div class="skill-category">
-                        <strong>Machine Learning & AI</strong>
-                        <div class="skill-list">PyTorch, TensorFlow, Scikit-learn, Graph Neural Networks, Deep Learning, Computer Vision, Natural Language Processing, MLOps</div>
-                    </div>
-                    <div class="skill-category">
-                        <strong>Programming Languages</strong>
-                        <div class="skill-list">Python, C++, SQL, JavaScript, R</div>
-                    </div>
-                    <div class="skill-category">
-                        <strong>ML Frameworks & Libraries</strong>
-                        <div class="skill-list">HuggingFace Transformers, DGL, PyTorch Geometric, OpenCV, YOLO, EfficientNet, BERT, GPT, spaCy, NLTK</div>
-                    </div>
-                    <div class="skill-category">
-                        <strong>Data Science & Analytics</strong>
-                        <div class="skill-list">Pandas, NumPy, Matplotlib, Statistical Analysis, Data Visualization</div>
-                    </div>
-                    <div class="skill-category">
-                        <strong>Cloud & DevOps</strong>
-                        <div class="skill-list">AWS, Docker, Git, Linux, REST APIs, Model Deployment</div>
-                    </div>
-                    <div class="skill-category">
-                        <strong>Specialized Tools</strong>
-                        <div class="skill-list">FAISS, Model Quantization, Jupyter, RDKit, SMILES, Molecular Modeling</div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Education -->
-            <div class="section-title">Education</div>
-            <div class="section-content">
-                <div class="education-item">
-                    <div class="degree">Bachelor of Technology</div>
-                    <div class="degree">Computer Science & Engineering</div>
-                    <div class="university">KG Reddy College of Engineering<br>Hyderabad, India</div>
-                    <div class="gpa">2021 - 2025 | CGPA: 7.65</div>
-                </div>
-            </div>
-            
-            <!-- Research & Publications -->
-            <div class="section-title">Research & Publications</div>
-            <div class="section-content">
-                <div class="research-achievements">
-                    <strong>Publication:</strong> "Japanese-to-English Video Dubbing Using BERT and Open Voice" - Accepted at ICMED 2025<br><br>
-                    <strong>Recognition:</strong> Selected for BITS Pilani Hyderabad AI/ML Workshop (2024), IEEE National-Level Project Expo Presenter (2024)<br><br>
-                    <strong>Achievement:</strong> Runner-Up at State Technical Fest (AI Innovation Category)<br><br>
-                    <strong>Leadership:</strong> Head of AIML Club - Led 5+ workshops, mentoring 100+ participants
-                </div>
-            </div>
-        </div>
-        
-        <!-- Right Column -->
-        <div class="right-column">
-            <!-- Professional Summary -->
-            <div class="section-title">Professional Summary</div>
-            <div class="section-content">
-                <div class="summary">
-                    AI/ML Engineer specializing in deep learning research, graph neural networks, and production ML systems. Proven expertise in developing Transformer-based architectures, optimizing model performance, and deploying scalable AI solutions. Research experience in computational chemistry and drug discovery with peer-reviewed publications. Expert in PyTorch, transformers, and MLOps with demonstrated ability to translate cutting-edge research into business-impactful applications.
-                </div>
-            </div>
-            
-            <!-- Professional Experience -->
-            <div class="section-title">Professional Experience</div>
-            <div class="section-content">
-                <div class="experience-item">
-                    <div class="job-title">Open Source Contributor</div>
-                    <div class="company-info">
-                        LangChain & PyTorch Projects
-                        <span class="job-duration">May 2025 – Present</span>
-                    </div>
-                    <ul class="achievements">
-                        <li>Actively contribute to LangChain, developing and improving components for building applications with large language models</li>
-                        <li>Implement and optimize PyTorch modules, enhancing deep learning model performance and functionality</li>
-                        <li>Collaborate with global developer communities to resolve issues, review pull requests, and maintain documentation</li>
-                        <li>Develop custom integrations between LangChain components and external APIs, improving framework versatility</li>
-                        <li>Create educational content and examples to help new users understand implementation best practices</li>
-                    </ul>
-                </div>
-                
-                <div class="experience-item">
-                    <div class="job-title">AI Research Fellow – Drug Discovery & Computational Chemistry</div>
-                    <div class="company-info">
-                        IIITH – IHub-Data (CCNSB), Hyderabad, India
-                        <span class="job-duration">Jan 2025 – Present</span>
-                    </div>
-                    <ul class="achievements">
-                        <li>Developed Transformer-based Graph Neural Network (GraphTransformer_CIGIN) for predicting solubility free energy (ΔG_solv) in molecular systems, extending CIGIN architecture with self-attention layers</li>
-                        <li>Replaced Set2Set pooling with multi-head global attention pooling and enhanced message passing with GraphTransformer layers, enabling superior global feature aggregation</li>
-                        <li>Achieved competitive performance metrics with GraphTransformer: MAE: 0.3727, RMSE: 0.6599, MSE: 0.4354 with only 1.23× parameter growth and 1.22× training time</li>
-                        <li>Implemented saliency visualization and gradient-based interpretation using PyTorch + DGL for batched molecular graph processing</li>
-                        <li>Built custom molecular GNN pipelines with SMILES data processing and RDKit integration for robust chemical property prediction</li>
-                    </ul>
-                </div>
-                
-                <div class="experience-item">
-                    <div class="job-title">Oracle AI Application Developer Trainee</div>
-                    <div class="company-info">
-                        ProwessIQ Information Systems Pvt Ltd, Chennai, India
-                        <span class="job-duration">Feb 2025 – July 2025</span>
-                    </div>
-                    <ul class="achievements">
-                        <li>Designed image-based recommendation system using EfficientNet and FAISS, improving search accuracy by 40%</li>
-                        <li>Optimized inference latency from 5s to 2s through parallel processing and model quantization techniques</li>
-                        <li>Integrated AI solutions with enterprise architecture for seamless deployment serving 500+ daily active users</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <!-- Key Projects -->
-            <div class="section-title">Key Projects</div>
-            <div class="section-content">
-                <div class="project-item">
-                    <div class="project-title">CIGIN - Chemical Interpretable Graph Interaction Networks</div>
-                    <div class="project-tech">PyTorch, DGL, GNNs</div>
-                    <ul class="achievements">
-                        <li>Enhanced graph neural network architecture for chemical property prediction with improved stability and interpretability</li>
-                        <li>Developed transformer-based aggregation module with attention heads, outperforming traditional Set2Set pooling methods</li>
-                        <li>Implemented gradient clipping, loss normalization, and comprehensive error handling for production-ready stability</li>
-                    </ul>
-                </div>
-                
-                <div class="project-item">
-                    <div class="project-title">Japanese to English Neural Machine Translation</div>
-                    <div class="project-tech">NLP, MBART, Optimization</div>
-                    <ul class="achievements">
-                        <li>Achieved 32 BLEU score using fine-tuned MBART model with context-aware translation capabilities</li>
-                        <li>Optimized inference speed by 35% through quantization, distillation, and multi-threading techniques</li>
-                    </ul>
-                </div>
-                
-                <div class="project-item">
-                    <div class="project-title">AI Resume Enhancer</div>
-                    <div class="project-tech">Python, Gemini API, NLP</div>
-                    <ul class="achievements">
-                        <li>Built AI system improving ATS compatibility by 40% across 500+ resumes using semantic matching algorithms</li>
-                        <li>Integrated Gemini 1.5 Flash for job description analysis achieving 98% content extraction accuracy</li>
-                    </ul>
-                </div>
-            </div>
+    <!-- Preview Modal -->
+    <div id="previewModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closePreview()">&times;</span>
+            <iframe id="previewFrame" class="preview-iframe" src=""></iframe>
         </div>
     </div>
     
     <script>
-        function downloadPDF() {
-            // Hide the download button during printing
-            const btn = document.querySelector('.download-btn');
-            btn.style.display = 'none';
-            
-            // Set print-friendly styles
-            document.body.style.margin = '0';
-            document.body.style.padding = '0';
-            
-            // Print the page
-            window.print();
-            
-            // Show the button again after printing
-            setTimeout(() => {
-                btn.style.display = 'block';
-            }, 1000);
+        function previewFormat(filename) {
+            const modal = document.getElementById('previewModal');
+            const iframe = document.getElementById('previewFrame');
+            iframe.src = filename;
+            modal.style.display = 'block';
         }
         
-        // Ensure page fits on one page
-        window.addEventListener('load', function() {
-            const container = document.querySelector('.resume-container');
-            const maxHeight = window.innerHeight * 0.95; // 95% of viewport
-            
-            if (container.offsetHeight > maxHeight) {
-                // Adjust font sizes if content is too long
-                document.body.style.fontSize = '9px';
+        function closePreview() {
+            const modal = document.getElementById('previewModal');
+            modal.style.display = 'none';
+            document.getElementById('previewFrame').src = '';
+        }
+        
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('previewModal');
+            if (event.target == modal) {
+                closePreview();
+            }
+        }
+        
+        // Add keyboard support
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closePreview();
             }
         });
     </script>
